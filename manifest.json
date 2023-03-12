@@ -1,0 +1,27 @@
+{
+  "name": "WebNanny",
+  "version": "1.0",
+  "description": "A Simple to use Chrome extension that blocks all websites except those listed by the admin user",
+  "permissions": [
+    "storage",
+    "tabs",
+    "identity"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "manifest_version": 2
+}
