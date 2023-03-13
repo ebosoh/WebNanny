@@ -1,0 +1,27 @@
+<!-- options.html -->
+
+<form id="allowedWebsitesForm">
+    <label for="website1">Website 1:</label>
+    <input type="text" id="website1" name="website1"><br>
+    <label for="website2">Website 2:</label>
+    <input type="text" id="website2" name="website2"><br>
+    <label for="website3">Website 3:</label>
+    <input type="text" id="website3" name="website3"><br>
+    <button type="submit">Save</button>
+  </form>
+  
+  <script src="options.js"></script>
+  <script>
+    // Get the form element and add a submit event listener
+    var form = document.querySelector('#allowedWebsitesForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Get the list of allowed websites from the form
+      var websitesList = form.querySelectorAll('input[type="text"]').map(function(input) {
+        return input.value;
+      });
+      // Save the list of allowed websites to storage
+      saveAllowedWebsites(websitesList);
+    });
+  </script>
+  

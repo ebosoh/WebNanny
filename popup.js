@@ -18,3 +18,11 @@ chrome.identity.getProfileUserInfo(function(userInfo) {
     document.getElementById('allowed-websites').innerHTML = '<ul>' + websitesList + '</ul>';
   });
   
+  // Get the current tab's ID
+chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  var tabId = tabs[0].id;
+  // Send a message to the content script
+  chrome.tabs.sendMessage(tabId, { message: 'blockWebsite' }, function(response) {
+    console.log(response.message);
+  });
+});
